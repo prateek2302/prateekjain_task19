@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Booking Web App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <div class="logo">
+        <span class="logo-icon">&#9881;</span>
+        <span class="logo-text">ServiceHub</span>
+      </div>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <span class="user-badge" id="usernameBadge">Prateek</span>
+      <button class="btn-logout" id="logoutBtn" type="button">Logout</button>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <main class="main-container">
+    
+    <!-- Left Section: Cart & Booking Form -->
+    <section class="left-section">
+      
+      <!-- Added Items Card -->
+      <div class="card added-items-card">
+        <h2 class="card-title">Added Items</h2>
+
+        <!-- Empty state placeholder -->
+        <div class="empty-state" id="emptyState">
+          <div class="info-icon">&#9432;</div>
+          <p class="empty-title">No Items Added</p>
+          <p class="empty-subtitle">Add items to the cart from the browse services section.</p>
+        </div>
+
+        <!-- Table displaying added services -->
+        <table class="items-table" id="itemsTable" style="display: none;">
+          <thead>
+            <tr>
+              <th>S.No.</th>
+              <th>Service Name</th>
+              <th>Price</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="itemsTableBody">
+            <!-- Dynamic rows injected here -->
+          </tbody>
+        </table>
+
+        <!-- Total Amount -->
+        <div class="total-row">
+          <span>Total Amount</span>
+          <span class="total-price" id="totalAmountText">₹0</span>
+        </div>
+      </div>
+
+      <!-- Booking Form Card -->
+      <div class="card booking-form-card">
+        <h2 class="card-title">Book Now</h2>
+        <form id="bookingForm" novalidate>
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" placeholder="Enter your full name" required>
+            <small class="error-msg" id="nameError"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="name@example.com" required>
+            <small class="error-msg" id="emailError"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password / Phone</label>
+            <input type="password" id="password" placeholder="Enter password or contact" required>
+            <small class="error-msg" id="passError"></small>
+          </div>
+
+          <button type="submit" class="btn-submit" id="bookNowSubmitBtn">Book Now</button>
+        </form>
+      </div>
+
+    </section>
+
+    <!-- Right Section: Browse Services -->
+    <section class="right-section" id="services">
+      <div class="card browse-card">
+        <h2 class="card-title">Browse Our Services</h2>
+        <p class="browse-subtitle">Click on the add to cart button to add the services to your cart or press skip</p>
+
+        <!-- Service Display Box -->
+        <div class="service-display-box">
+          <div class="service-media" id="serviceMediaContainer">
+            <!-- Illustrated preview banner -->
+            <div class="service-icon-banner" id="serviceIconBanner">&#129529;</div>
+          </div>
+
+          <div class="service-details">
+            <h3 class="service-name" id="serviceNameDisplay">Dry Cleaning</h3>
+            <span class="service-price" id="servicePriceDisplay">₹200.00</span>
+          </div>
+
+          <p class="service-desc" id="serviceDescDisplay">
+            Professional laundry, dry cleaning, and fabric care delivered right to your doorstep.
+          </p>
+
+          <!-- Action Buttons for Current Card -->
+          <div class="service-actions">
+            <button type="button" class="btn-skip" id="skipBtn">Skip Item &#10140;</button>
+            <button type="button" class="btn-add" id="addItemBtn">Add Item &#43;</button>
+          </div>
+        </div>
+
+        <!-- Cart & Booking Quick Options Bar -->
+        <div class="cart-options-bar">
+          <p class="options-hint">Add the items to the cart and book now</p>
+          <div class="options-actions">
+            <button type="button" class="btn-secondary" id="quickAddToCartBtn">Add to Cart</button>
+            <button type="button" class="btn-primary" id="quickBookNowBtn">Book Now</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Notification Banner -->
+  <div class="toast" id="toastMessage"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
